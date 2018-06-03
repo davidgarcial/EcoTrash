@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>BECOME DRIVER</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-label style="color:#000000;font-weight: bold; ">What to do?</ion-label>
+    <ion-label>To be a conductor you need to should us 3 photos</ion-label>
+    <br>
+    <ion-label>1. Driver license</ion-label>
+    <ion-label>2. Id</ion-label>
+    <ion-label>3. Letter no criminal record</ion-label>
+    
+    <button ion-button full (click)="takePhoto()" >
+    <ion-icon name="camera"></ion-icon> 
+    Take Photos
+    </button>
+  
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 *ngFor="let photo of photos; let id = index">
+          <ion-card class="block">
+            <ion-icon name="trash" class="deleteIcon" (click)="deletePhoto(id)"></ion-icon>
+            <img [src]="photo" *ngIf="photo" />
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <button ion-button full block (click)='beConductor()'>Become a driver</button>  
+    
+</ion-content>

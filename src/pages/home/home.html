@@ -1,14 +1,55 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+  <style>
+      #map {
+        
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <ion-navbar>
+      <ion-title>SCHEDULE COLLECTION</ion-title>
+    </ion-navbar>
+    
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding style="width:100%">
+
+  <ion-item>
+    <ion-label>Type</ion-label>
+    <ion-select [(ngModel)]="selectedType">
+      <ion-option *ngFor="let item of products" value={{item.tarifa}}>{{item.descripcion}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Date</ion-label>
+    <ion-datetime style="text-align: right;" displayFormat="MM/DD/YYYY" [(ngModel)]="dateRecolect"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floatin>Weight(lb)</ion-label>
+      <ion-input style="text-align: right;" [(ngModel)]="kilograms" type="number" (change)='calculate()'></ion-input>
+    </ion-item>
+
+  <ion-item>
+      <ion-label floatin>Total <span style="color:#469650;font-weight: bold; ">$</span></ion-label>
+    <ion-input  style="color:#469650;font-weight: bold; text-align: right;" fixed [(ngModel)]="total" readonly type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floating>Notes</ion-label>
+      <ion-input style="text-align: right;" [(ngModel)]="decription" type="text"></ion-input>
+    </ion-item>
+
+  <div style="margin-top: 2%; margin-bottom: 2%;">
+      <ng4geo-autocomplete [userSettings]="userSettings2" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
+  </div>
+
+  <div #map id="map" style="margin-top: 2%;height: 40%;width: 100%;"></div>
+
+  <button ion-button full block (click)='agend()'>SCHEDULE</button>
 </ion-content>
+
+<ion-nav [root]="rootPage"></ion-nav>

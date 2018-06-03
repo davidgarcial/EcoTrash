@@ -1,0 +1,22 @@
+<ion-header>
+  <style>
+    #map {
+      height: 100%;
+    }
+    
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+
+  <ion-navbar>
+    <ion-title>SHIPPING</ion-title>
+   </ion-navbar>
+</ion-header>
+
+<ion-content padding> 
+  <div #map id="map"></div>   
+  <button ion-button block (click)='calculateAndDisplayRoute()' style="position: absolute; top:87%; left:20%; width:250px;">{{name}}</button>
+</ion-content>

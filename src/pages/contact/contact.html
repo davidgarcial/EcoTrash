@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+   <ion-title>SALES HISTORY</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let item of gridData">
+    <p>
+      Payment: <span style="color:#000000;font-weight: bold; ">${{item.total}}</span> <br>
+      Status: <span style="font-weight: bold; " [style.color]="item.color ? '#469650' : '#EB6D1E'">{{item.estatus}}</span> <br>
+      Collected Date: <span style="color:#000000;font-weight: bold; ">{{item.fechaRealRecoleccion}}</span> <br>
+      Requested Date: <span style="color:#000000;font-weight: bold; ">{{item.fechaRecoleccion}}</span> <br>
+    </p>
+  </ion-item>
+</ion-content>
